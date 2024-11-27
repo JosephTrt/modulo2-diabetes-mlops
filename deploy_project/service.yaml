@@ -1,0 +1,12 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: diabetes-mlops-api-classifier
+spec:
+  template:
+    spec:
+      containers:
+        - image: us-central1-docker.pkg.dev/mlops-course-441515/repo-mlops-course/image-v4-servicio-mlops:latest
+          env:
+          ports:
+            - containerPort: 4005

@@ -1,0 +1,28 @@
+Paso 4: Creacion del Repositorio (SOLO SE REALIZA UNA VEZ)
+gcloud artifacts repositories create repo-dep-prediccion-datapath --repository-format docker --project datapath-dep23-project-ino --location us-central1
+
+
+Paso 5:
+gcloud builds submit --config=cloudbuild.yaml --project datapath-dep23-project-ino
+
+
+- Comando para Desplegar el Servicio creado a partir de mi Imagen Docker:
+gcloud run services replace service.yaml --region us-central1 --project datapath-dep23-project-ino
+
+
+Paso para configurar el acceso a unos o muchos usuarios (SOLO SE REALIZA UNA VEZ)
+                                   "nombre del servicio (service.yaml)"
+gcloud run services set-iam-policy servicio-dep-23-kaic-datapath gcr-service-policy.yaml --region us-central1 --project datapath-dep23-project-ino
+
+
+-h 127.0.0.1
+--host 127.0.0.1
+
+-p 4000
+--port 4000
+
+-p
+--project datapath-dep23-project-ino
+
+--region us-central1
+--region us-east1
